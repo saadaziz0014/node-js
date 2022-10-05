@@ -1,7 +1,4 @@
-const rect = {
-    area: (x,y) => (x * y),
-    perimeter: (x,y) => (2*(x + y))
-}
+const rect = require('./reactangle');
 
 function solver(l,b){
     if(l <= 0 || b <= 0){
