@@ -1,12 +1,15 @@
 const rect = require('./reactangle');
 
 function solver(l,b){
-    if(l <= 0 || b <= 0){
-        console.log("Value for both l and b must be geater than zero");
-    }
-    else{
-        console.log(`Area for length ${l} and breadth ${b} is : ${rect.area(l,b)} and Perimeter is : ${rect.perimeter(l,b)} `);
-    }
+    console.log(`Solution for the value of l = ${l} and b = ${b}`);
+    rect(l,b,(err,rectangle)=>{
+        if(err){
+            console.log("Error: ",err.message);
+        }
+        else{
+            console.log(`Area = ${rectangle.area()} and Perimeter = ${rectangle.perimeter()}`);
+        }
+    });
 }
 
 solver(5,1);
