@@ -1,19 +1,19 @@
-const rect = require('./reactangle');
+const http = require('http');
 
-function solver(l,b){
-    console.log(`Solution for the value of l = ${l} and b = ${b}`);
-    rect(l,b,(err,rectangle)=>{
-        if(err){
-            console.log("Error: ",err.message);
-        }
-        else{
-            console.log(`Area = ${rectangle.area()} and Perimeter = ${rectangle.perimeter()}`);
-        }
-    });
-}
+const hostname = "localhost";
+const port = 3000;
 
-solver(5,1);
-solver(0,2);
-solver(3,-8);
+const server = http.createServer((req,res) =>{
+    console.log(req.headers);
+
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    res.end("<html><body><h1>Saad with HTTP</h1></body></html>");
+})
+
+server.listen(port,hostname,()=>{
+    console.log(`Server running at http://${hostname}:${port}/`);
+})
+
 
 
